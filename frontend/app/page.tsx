@@ -126,6 +126,13 @@ export default function Home() {
                     Sign up
                   </Link>
                 </div>
+                <p className="text-center text-xs text-[#6b7385]">
+                  Preview the admin experience on the{" "}
+                  <Link href="/dashboard" className="font-semibold text-[#00a0de] hover:underline">
+                    SRMS dashboard
+                  </Link>
+                  .
+                </p>
               </form>
             </div>
 
