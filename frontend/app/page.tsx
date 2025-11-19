@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/navigation"; // Import router for redirection
 
 const helpItems = [
   {
@@ -27,15 +28,56 @@ const helpItems = [
 ];
 
 export default function Home() {
-  const [username, setUsername] = useState("");
+  const router = useRouter(); // Initialize router
+  const [username, setUsername] = useState(""); // This captures the input
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(""); // New state for error messages
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsLoading(true);
-    await new Promise((resolve) => setTimeout(resolve, 600));
-    setIsLoading(false);
+    setError(""); // Clear previous errors
+
+    try {
+      // 1. Send data to Backend
+      // Note: We are sending 'username' as 'email' because your backend currently expects an email.
+      const res = await fetch("http://localhost:5000/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ 
+          email: username, // Mapping the input to backend 'email' field
+          password: password 
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || "Login failed");
+      }
+
+      // 2. Success!
+      // Optional: Save the user data/token to localStorage if needed
+      // localStorage.setItem("user", JSON.stringify(data.user));
+
+      alert("Login Successful! Welcome " + data.user.username);
+      
+      // 3. Redirect to Dashboard
+      // router.push("/dashboard");
+      if (data.user.role === 'admin' || data.user.role === 'faculty') {
+  router.push("/dashboard"); // <--- Admins go here
+} else {
+  router.push("/edashboard"); // <--- Students go here
+}
+
+    } catch (err: any) {
+      setError(err.message); // Display the error from backend
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -69,20 +111,28 @@ export default function Home() {
                 onSubmit={handleSubmit}
                 className="space-y-6 rounded-2xl border border-[#dadee7] bg-[#f9fafc] p-6"
               >
+                {/* Error Message Display */}
+                {error && (
+                  <div className="p-3 rounded bg-red-100 border border-red-200 text-red-600 text-sm">
+                    {error}
+                  </div>
+                )}
+
                 <div className="space-y-2">
                   <label
                     htmlFor="username"
                     className="text-sm font-semibold text-[#3a4251]"
                   >
-                    Username
+                    Username (Email)
                   </label>
                   <input
                     id="username"
-                    type="text"
-                    placeholder="Username"
+                    type="text" // Changed from "email" to "text" so they can type whatever
+                    placeholder="Enter your registered email"
                     value={username}
                     onChange={(event) => setUsername(event.target.value)}
                     className="h-12 w-full rounded-full border border-[#d2d7e1] bg-white px-5 text-sm text-[#1f2433] shadow-inner focus:border-[#20d1be] focus:outline-none focus:ring-2 focus:ring-[#20d1be]/40"
+                    required
                   />
                 </div>
 
@@ -100,6 +150,7 @@ export default function Home() {
                     value={password}
                     onChange={(event) => setPassword(event.target.value)}
                     className="h-12 w-full rounded-full border border-[#d2d7e1] bg-white px-5 text-sm text-[#1f2433] shadow-inner focus:border-[#20d1be] focus:outline-none focus:ring-2 focus:ring-[#20d1be]/40"
+                    required
                   />
                   <div className="flex justify-end">
                     <Link
@@ -155,7 +206,6 @@ export default function Home() {
             </aside>
           </div>
         </section>
-
       </main>
 
       <footer className="mt-auto border-t border-[#d8dde7] bg-[#f8fafc] px-4 py-4 text-center text-xs font-semibold text-[#70778a]">

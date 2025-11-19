@@ -1,0 +1,13 @@
+# --- Dependencies ---
+node_modules
+*/node_modules
+
+# --- Secrets & Environment ---
+.env
+.env.local
+.DS_Store
+
+# --- Backend Utility Scripts (Security Risk) ---
+createAdmin.js
+promoteToAdmin.js
+checkRoles.js
