@@ -1,18 +1,16 @@
 "use client";
 
 import {
-  BarChart3,
-  Calendar,
   LayoutDashboard,
+  LogOut,
   Package,
-  Settings,
-  Users,
   Wrench,
   X,
 } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import { setAuthToken } from "@/lib/api";
 
 interface SidebarProps {
   open: boolean;
@@ -22,15 +20,18 @@ interface SidebarProps {
 const navItems = [
   { icon: LayoutDashboard, label: "Dashboard", href: "/dashboard" },
   { icon: Wrench, label: "Service Requests", href: "/new-request" },
-  { icon: Calendar, label: "Appointments", href: "#" },
-  { icon: Users, label: "Technicians", href: "#" },
-  { icon: Package, label: "Assets", href: "#" },
-  { icon: BarChart3, label: "Reports", href: "#" },
-  { icon: Settings, label: "Settings", href: "#" },
+  { icon: Package, label: "All Tickets", href: "/tickets" },
 ];
 
 export default function Sidebar({ open, setOpen }: SidebarProps) {
   const pathname = usePathname();
+  const router = useRouter();
+
+  const handleLogout = () => {
+    setAuthToken(null);
+    setOpen(false);
+    router.push("/");
+  };
 
   return (
     <>
@@ -80,17 +81,6 @@ export default function Sidebar({ open, setOpen }: SidebarProps) {
                 </>
               );
 
-              if (item.href === "#") {
-                return (
-                  <span
-                    key={item.label}
-                    className="flex w-full cursor-not-allowed items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium text-white/40"
-                  >
-                    {linkContent}
-                  </span>
-                );
-              }
-
               return (
                 <Link
                   key={item.label}
@@ -105,6 +95,16 @@ export default function Sidebar({ open, setOpen }: SidebarProps) {
               );
             })}
           </nav>
+
+          <div className="border-t border-white/10 px-4 py-4">
+            <button
+              onClick={handleLogout}
+              className="flex w-full items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium text-white/80 transition hover:bg-white/10"
+            >
+              <LogOut className="h-5 w-5" />
+              Logout
+            </button>
+          </div>
 
         </div>
       </aside>
