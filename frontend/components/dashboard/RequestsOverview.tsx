@@ -41,11 +41,10 @@ export default function RequestsOverview() {
             <button
               key={tab}
               onClick={() => setActiveTab(key)}
-              className={`px-4 py-2 text-sm font-medium transition ${
-                activeTab === key
+              className={`px-4 py-2 text-sm font-medium transition ${activeTab === key
                   ? "border-b-2 border-slate-900 text-slate-900"
                   : "text-slate-500 hover:text-slate-900"
-              }`}
+                }`}
             >
               {tab}
             </button>
@@ -126,4 +125,3 @@ export default function RequestsOverview() {
     </Card>
   );
 }
-

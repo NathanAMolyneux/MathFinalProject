@@ -81,13 +81,12 @@ export default function CalendarAndAppointments() {
             {days.map((day, index) => (
               <div
                 key={index}
-                className={`flex h-8 items-center justify-center rounded text-xs font-medium ${
-                  day === null
+                className={`flex h-8 items-center justify-center rounded text-xs font-medium ${day === null
                     ? ""
                     : day === 20
-                    ? "bg-slate-900 text-white"
-                    : "text-slate-700 hover:bg-slate-100"
-                }`}
+                      ? "bg-slate-900 text-white"
+                      : "text-slate-700 hover:bg-slate-100"
+                  }`}
               >
                 {day}
               </div>
@@ -136,4 +135,3 @@ export default function CalendarAndAppointments() {
     </div>
   );
 }
-

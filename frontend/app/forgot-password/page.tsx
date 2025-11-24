@@ -46,92 +46,105 @@ export default function ForgotPasswordPage() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col bg-gradient-to-b from-[#f4f6fb] to-[#dcdfe8]">
-      <header className="border-b border-[#d1d5e0] bg-white/80 backdrop-blur">
-        <div className="mx-auto flex w-full max-w-5xl flex-col gap-2 px-4 py-6 text-center text-[#1f2433]">
-          <h1 className="text-2xl font-bold">
-            Enter your username and email to reset your password
-          </h1>
-          <p className="text-sm text-[#6b7385]">
-            We’ll send reset instructions to the registered email address.
-          </p>
+    <div className="flex min-h-screen flex-col bg-white">
+      <header className="border-b border-gray-100 bg-white/90 backdrop-blur">
+        <div className="mx-auto max-w-7xl px-4 py-6 md:px-8">
+          <Link href="/" className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-red-800 hover:from-red-500 hover:to-red-700 transition-colors">
+            TaskFlow
+          </Link>
+          <p className="mt-1 text-sm text-gray-500">(CIS-SRMS)</p>
         </div>
       </header>
 
-      <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col items-center justify-center px-4 py-10">
-        <section className="flex w-full flex-col items-center gap-8 rounded-[32px] border border-[#dfdfe3] bg-white/90 p-6 text-sm text-[#1f2433] shadow-[0_22px_70px_rgba(15,23,42,0.23)] backdrop-blur md:p-10 lg:flex-row">
-          <form className="w-full max-w-xl flex-1 space-y-5" onSubmit={handleSubmit}>
-            {[
-              {
-                label: "Username",
-                name: "username",
-                type: "text",
-                placeholder: "Username",
-              },
-              {
-                label: "Email",
-                name: "email",
-                type: "email",
-                placeholder: "example@mnsu.edu",
-              },
-            ].map((field) => (
-              <div key={field.name} className="space-y-1.5">
-                <label
-                  className="text-sm font-semibold text-[#3a4251]"
-                  htmlFor={field.name}
-                >
-                  {field.label}
-                </label>
-                <input
-                  id={field.name}
-                  name={field.name}
-                  type={field.type}
-                  placeholder={field.placeholder}
-                  value={(formData as Record<string, string>)[field.name]}
-                  onChange={handleChange}
-                  required
-                  className="h-12 w-full rounded-full border border-[#d2d7e1] bg-white px-5 text-sm text-[#1f2433] shadow-inner focus:border-[#1fccce] focus:outline-none focus:ring-2 focus:ring-[#1fccce]/40"
-                />
+      <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col items-center justify-center px-4 py-10 md:px-8">
+        <section className="w-full rounded-2xl border border-gray-100 bg-white p-8 shadow-lg md:p-12">
+          <div className="grid items-center gap-12 lg:grid-cols-[1.2fr_0.8fr]">
+
+            <div className="space-y-8">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-widest text-red-600">
+                  ACCOUNT RECOVERY
+                </p>
+                <h2 className="mt-3 text-3xl font-bold text-gray-900 tracking-tight">
+                  Reset Password
+                </h2>
+                <p className="mt-2 text-base text-gray-500 leading-relaxed">
+                  Enter your username and registered email address to receive password reset instructions.
+                </p>
               </div>
-            ))}
 
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="mt-2 w-full rounded-full bg-gradient-to-r from-[#24c1dd] to-[#00a86b] py-3 text-base font-semibold text-white shadow-lg shadow-[#00a86b]/30 transition hover:brightness-110 disabled:opacity-60"
-            >
-              {isSubmitting ? "Sending..." : "Send reset link"}
-            </button>
+              <form className="space-y-6" onSubmit={handleSubmit}>
+                {[
+                  {
+                    label: "Username",
+                    name: "username",
+                    type: "text",
+                    placeholder: "Enter your username",
+                  },
+                  {
+                    label: "Email",
+                    name: "email",
+                    type: "email",
+                    placeholder: "example@mnsu.edu",
+                  },
+                ].map((field) => (
+                  <div key={field.name} className="space-y-1.5">
+                    <label
+                      className="text-sm font-semibold text-gray-700"
+                      htmlFor={field.name}
+                    >
+                      {field.label}
+                    </label>
+                    <input
+                      id={field.name}
+                      name={field.name}
+                      type={field.type}
+                      placeholder={field.placeholder}
+                      value={(formData as Record<string, string>)[field.name]}
+                      onChange={handleChange}
+                      required
+                      className="h-12 w-full rounded-lg border border-gray-300 bg-white px-4 text-base text-gray-900 shadow-sm focus:border-red-500 focus:outline-none focus:ring-2 focus:ring-red-500/20 transition-all placeholder:text-gray-400"
+                    />
+                  </div>
+                ))}
 
-            <p className="text-center text-xs text-[#6b7385]">
-              Remembered your password?{" "}
-              <Link href="/" className="font-semibold text-[#00a0de] hover:underline">
-                Go back to Login
-              </Link>
-            </p>
-          </form>
+                <div className="pt-2">
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full rounded-lg bg-red-600 py-3.5 text-base font-semibold text-white shadow-md hover:bg-red-700 hover:shadow-lg transition-all disabled:opacity-70 disabled:cursor-not-allowed"
+                  >
+                    {isSubmitting ? "Sending Instructions..." : "Send Reset Link"}
+                  </button>
+                </div>
 
-          <aside className="h-fit w-full max-w-sm self-center rounded-[24px] border border-[#cfd7e6] bg-white/95 p-6 shadow-[0_12px_34px_rgba(15,23,42,0.12)] backdrop-blur">
-            <p className="text-xl font-semibold text-[#00a0de]">Need help?</p>
-            <ul className="mt-5 space-y-3 text-sm text-[#4c5465]">
-              {helpItems.map((item) => (
-                <li key={item.title}>
-                  <span className="font-semibold text-[#2f3747]">
-                    {item.title}
-                  </span>
-                  <br />
-                  <span>{item.detail}</span>
-                </li>
-              ))}
-            </ul>
-          </aside>
+                <p className="text-center text-sm text-gray-500">
+                  Remembered your password?{" "}
+                  <Link href="/login" className="font-semibold text-red-600 hover:underline hover:text-red-700">
+                    Back to Login
+                  </Link>
+                </p>
+              </form>
+            </div>
+
+            <aside className="h-fit w-full rounded-2xl border border-gray-100 bg-gray-50/50 p-8">
+              <h3 className="text-lg font-bold text-gray-900 mb-4">Need Assistance?</h3>
+              <ul className="space-y-4">
+                {helpItems.map((item) => (
+                  <li key={item.title} className="text-sm">
+                    <p className="font-semibold text-gray-900 mb-1">{item.title}</p>
+                    <p className="text-gray-500 leading-relaxed">{item.detail}</p>
+                  </li>
+                ))}
+              </ul>
+            </aside>
+          </div>
         </section>
       </main>
 
-      <footer className="border-t border-[#d8dde7] bg-[#f8fafc] px-4 py-4 text-center text-xs font-semibold text-[#70778a]">
-        ©2025 • Smart Service Request Management System • MNSU IT Support
+      <footer className="mt-auto border-t border-gray-100 bg-white px-4 py-6 text-center text-sm font-medium text-gray-500">
+        © 2025 TaskFlow • MNSU IT Support
       </footer>
     </div>
   );
 }
-

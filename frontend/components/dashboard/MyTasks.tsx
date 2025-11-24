@@ -38,21 +38,19 @@ export default function MyTasks() {
       <div className="mb-6 flex gap-4 border-b border-slate-200 text-sm font-medium">
         <button
           onClick={() => setActiveTab("assigned")}
-          className={`px-4 py-2 ${
-            activeTab === "assigned"
+          className={`px-4 py-2 ${activeTab === "assigned"
               ? "border-b-2 border-slate-900 text-slate-900"
               : "text-slate-500 hover:text-slate-900"
-          }`}
+            }`}
         >
           Assigned
         </button>
         <button
           onClick={() => setActiveTab("history")}
-          className={`px-4 py-2 ${
-            activeTab === "history"
+          className={`px-4 py-2 ${activeTab === "history"
               ? "border-b-2 border-slate-900 text-slate-900"
               : "text-slate-500 hover:text-slate-900"
-          }`}
+            }`}
         >
           History
         </button>
@@ -100,4 +98,3 @@ export default function MyTasks() {
     </Card>
   );
 }
-

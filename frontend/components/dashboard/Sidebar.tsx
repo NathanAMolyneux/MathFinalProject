@@ -43,9 +43,8 @@ export default function Sidebar({ open, setOpen }: SidebarProps) {
       )}
 
       <aside
-        className={`fixed left-0 top-0 z-40 h-full w-72 transform bg-slate-950 text-white shadow-2xl transition-transform duration-300 ease-in-out ${
-          open ? "translate-x-0" : "-translate-x-full"
-        }`}
+        className={`fixed left-0 top-0 z-40 h-full w-72 transform bg-red-900 text-white shadow-2xl transition-transform duration-300 ease-in-out ${open ? "translate-x-0" : "-translate-x-full"
+          }`}
       >
         <div className="flex h-full flex-col">
           <div className="flex items-center justify-between border-b border-white/10 p-6">
@@ -74,23 +73,17 @@ export default function Sidebar({ open, setOpen }: SidebarProps) {
             {navItems.map((item) => {
               const isActive =
                 item.href !== "#" && pathname?.startsWith(item.href);
-              const linkContent = (
-                <>
-                  <item.icon className="h-5 w-5" />
-                  {item.label}
-                </>
-              );
 
               return (
                 <Link
                   key={item.label}
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className={`flex w-full items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium transition ${
-                    isActive ? "bg-white text-slate-900" : "text-white/80 hover:bg-white/10"
-                  }`}
+                  className={`flex w-full items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium transition ${isActive ? "bg-white text-red-900" : "text-white/80 hover:bg-white/10"
+                    }`}
                 >
-                  {linkContent}
+                  <item.icon className="h-5 w-5" />
+                  {item.label}
                 </Link>
               );
             })}
@@ -111,4 +104,3 @@ export default function Sidebar({ open, setOpen }: SidebarProps) {
     </>
   );
 }
-
