@@ -4,6 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const connectDB = require('./config/db');
 const { errorHandler } = require('./middleware/errorMiddleware');
+const requestRoutes = require('./routes/requestRoutes');
 
 // 1. Connect to Database
 connectDB();
@@ -14,6 +15,7 @@ const PORT = process.env.PORT || 5000;
 // 2. Global Middleware
 app.use(cors());
 app.use(express.json());
+app.use('/api/requests', requestRoutes);
 
 // 3. Routes
 // Any route inside authRoutes will be prefixed with /api/auth

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 
 const categories = ["IT Support", "Facilities", "Classroom Support"];
-const priorities = ["P1", "P2", "P3", "P4"];
+const priorities = ["Low", "Medium", "High", "CRITICAL"];
 
 const inputClasses =
   "w-full rounded-full border border-slate-200 bg-slate-100 px-5 py-3 text-sm text-slate-700 placeholder:text-slate-400 focus:border-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-200";
@@ -17,6 +17,7 @@ export const metadata = {
 export default function NewRequestPage() {
   async function createRequestAction(formData: FormData) {
     "use server";
+
     const payload = {
       title: formData.get("title"),
       description: formData.get("description"),
@@ -26,15 +27,46 @@ export default function NewRequestPage() {
       contactPreference: formData.get("contact"),
     };
 
-    const ticketId = (Math.floor(Math.random() * 9000) + 1000).toString();
+    const API_BASE_URL =
+      process.env.BACKEND_URL || "http://localhost:5000";
 
-    // TODO: Replace the mock logic with an API call.
+    const res = await fetch(`${API_BASE_URL}/api/requests`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        title: String(payload.title ?? ""),
+        description: String(payload.description ?? ""),
+        category: String(payload.category ?? ""),
+        priority: String(payload.priority ?? ""),
+        location: String(payload.location ?? ""),
+        contactPreference: String(payload.contactPreference ?? ""),
+      }),
+    });
+
+    if (!res.ok) {
+      console.error("Failed to create request", await res.text());
+      throw new Error("Failed to create request");
+    }
+
+    const json = await res.json();
+
+    
+    console.log("Create request response:", json);
+
+   
+    const created = json.data ?? json;
+
+   
+    const ticketId = created?._id ? String(created._id) : "unknown";
+
     redirect(
       `/success/${ticketId}?title=${encodeURIComponent(
         String(payload.title ?? "")
       )}`
     );
   }
+
+
 
   return (
     <AppShell title="New Request" mainClassName="px-6 py-8">
@@ -73,7 +105,7 @@ export default function NewRequestPage() {
             </FormField>
             <FormField label="Priority *">
               <select
-                className={`${inputClasses} uppercase`}
+                className={`${inputClasses}`}
                 name="priority"
                 required
               >
