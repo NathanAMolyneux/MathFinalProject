@@ -1,17 +1,15 @@
 const express = require("express");
-const router = express.Router();
-
 const {
   createRequest,
   getAllRequests,
 } = require("../controllers/requestController");
 
-console.log("createRequest type:", typeof createRequest);
-console.log("getAllRequests type:", typeof getAllRequests);
+const router = express.Router();
 
+// GET /api/requests -> get all service requests
 router.get("/", getAllRequests);
 
-
+// POST /api/requests -> create a new request
 router.post("/", createRequest);
 
 module.exports = router;
