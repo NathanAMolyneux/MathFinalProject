@@ -1,39 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, CheckCircle, Users, Target, Shield, Linkedin, Globe, Github } from "lucide-react";
+import { ArrowRight, Users, Target, Shield  } from "lucide-react";
 
 export default function LandingPage() {
-  const teamMembers = [
-    {
-      name: "Abishek Lwagun",
-      role: "Team Lead & Fullstack Developer",
-      extraRole: "Designer",
-      bio: "Spearheading the architectural vision and full-stack implementation, ensuring scalable and robust solutions.",
-      initials: "AL",
-    },
-    {
-      name: "Nathan M.",
-      role: "Scrum Master",
-      extraRole: "Designer & Developer",
-      bio: "Driving agile methodologies to ensure timely delivery while contributing to high-fidelity design and core development.",
-      initials: "NM",
-    },
-    {
-      name: "Sanju",
-      role: "UI/UX Designer",
-      extraRole: "Frontend Developer",
-      bio: "Crafting intuitive, user-centric interfaces and translating design concepts into responsive, high-performance frontend code.",
-      initials: "S",
-    },
-    {
-      name: "Rikin Shrestha",
-      role: "Designer & Developer",
-      extraRole: "Fullstack Contributor",
-      bio: "Bridging the gap between aesthetic excellence and functional reliability through comprehensive design and development.",
-      initials: "RS",
-    }
-  ];
+  
 
   return (
     <div className="min-h-screen bg-white text-[#1a1f2e] font-sans selection:bg-red-100 selection:text-red-900">
@@ -43,16 +14,14 @@ export default function LandingPage() {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center group cursor-pointer">
               <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-red-800 group-hover:from-red-500 group-hover:to-red-700 transition-all duration-300">
-                TaskFlow
+                Calculus 2 Notes App 
               </span>
             </div>
             <div className="hidden md:flex items-center space-x-8">
               <Link href="#about" className="text-gray-600 hover:text-red-600 transition-colors font-medium">
                 About Us
               </Link>
-              <Link href="#team" className="text-gray-600 hover:text-red-600 transition-colors font-medium">
-                Team
-              </Link>
+
               <Link
                 href="/login"
                 className="px-6 py-2 rounded-full bg-red-600 text-white font-medium hover:bg-red-700 hover:shadow-lg hover:shadow-red-600/30 transition-all transform hover:-translate-y-0.5"
@@ -71,17 +40,16 @@ export default function LandingPage() {
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-red-50 border border-red-100 text-red-600 text-sm font-medium mb-8 animate-fade-in-up shadow-sm">
               <span className="flex h-2 w-2 rounded-full bg-red-600 mr-2 animate-pulse"></span>
-              Revolutionizing Service Management
+              Revolutionizing Calculus Education
             </div>
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-tight">
-              Manage Requests with <br />
+              Learn Calculus 2 with <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-800">
                 Precision & Speed
               </span>
             </h1>
             <p className="text-xl text-gray-600 mb-10 leading-relaxed max-w-2xl mx-auto">
-              TaskFlow (CIS-SRMS) is the ultimate solution for managing service requests efficiently.
-              Designed for modern teams to track, prioritize, and resolve tasks seamlessly.
+              The Calculus 2 Notes App is your one stop shop for mastering Calculus 2 concepts with ease and efficiency.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -111,15 +79,13 @@ export default function LandingPage() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Mission & Vision</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">The Mission</h2>
             <div className="max-w-4xl mx-auto bg-white p-10 rounded-2xl shadow-sm border border-gray-100">
               <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                We are a team of forward-thinking developers and designers working under the expert mentorship of <span className="font-semibold text-gray-900">Professor Suboh</span>.
-                Our mission is to engineer a transformative Service Request Management System (SRMS) that redefines organizational efficiency.
+            Calculus 2 can feel overwhelming, but with the right resources, mastering its concepts becomes achievable. Our mission is to provide students with a comprehensive, user-friendly platform that simplifies complex topics, enhances understanding, and accelerates learning.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
-                This platform serves as a strategic showcase for the <span className="font-semibold text-red-700">Federal Insurance Company</span>, demonstrating a future-ready infrastructure.
-                By integrating advanced workflow automation with intuitive design, we aim to provide a scalable solution that ensures transparency, accountability, and operational excellence.
+                This platform aims to answer any questions students may have with clear notes for understanding a topic combined with visuals and practice examples tp reinforce learning. The goal is to make calculus 2 understandable for all students.
               </p>
             </div>
           </div>
@@ -148,47 +114,6 @@ export default function LandingPage() {
                 </div>
                 <h3 className="text-xl font-bold mb-3">{item.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section id="team" className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Meet the Team</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-              The innovative minds behind TaskFlow, simulating a professional enterprise team to deliver excellence.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {teamMembers.map((member, index) => (
-              <div key={index} className="group relative bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
-                <div className="p-8 flex flex-col items-center">
-                  <div className="w-24 h-24 rounded-full bg-gradient-to-br from-red-50 to-red-100 flex items-center justify-center text-2xl font-bold text-red-600 mb-6 group-hover:scale-110 transition-transform duration-300">
-                    {member.initials}
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2 text-center">{member.name}</h3>
-                  <p className="text-red-600 font-medium text-sm uppercase tracking-wider text-center mb-1">{member.role}</p>
-                  <p className="text-gray-400 text-xs font-medium mb-4">{member.extraRole}</p>
-
-                  {/* Social Links - Always visible but subtle */}
-                  <div className="flex space-x-3 mb-4 opacity-50 group-hover:opacity-100 transition-opacity duration-300">
-                    <a href="#" className="text-gray-400 hover:text-red-600 transition-colors"><Linkedin className="w-4 h-4" /></a>
-                    <a href="#" className="text-gray-400 hover:text-red-600 transition-colors"><Github className="w-4 h-4" /></a>
-                    <a href="#" className="text-gray-400 hover:text-red-600 transition-colors"><Globe className="w-4 h-4" /></a>
-                  </div>
-                </div>
-
-                {/* Hover Overlay for Bio */}
-                <div className="absolute inset-0 bg-white/95 backdrop-blur-sm p-6 flex flex-col justify-center items-center text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0">
-                  <p className="text-gray-700 text-sm leading-relaxed font-medium">
-                    "{member.bio}"
-                  </p>
-                </div>
               </div>
             ))}
           </div>

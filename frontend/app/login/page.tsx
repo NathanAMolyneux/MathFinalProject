@@ -85,9 +85,9 @@ export default function LoginPage() {
       <header className="border-b border-gray-100 bg-white/90 backdrop-blur">
         <div className="mx-auto max-w-7xl px-4 py-6 md:px-8">
           <Link href="/" className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-red-800 hover:from-red-500 hover:to-red-700 transition-colors">
-            TaskFlow
+            Calculus 2 Notes App
           </Link>
-          <p className="mt-1 text-sm text-gray-500">(CIS-SRMS)</p>
+          <p className="mt-1 text-sm text-gray-500">(MATH 122)</p>
         </div>
       </header>
 
@@ -103,7 +103,7 @@ export default function LoginPage() {
                   Welcome Back
                 </h2>
                 <p className="mt-2 text-base text-gray-500 leading-relaxed">
-                  Please enter your credentials to access the TaskFlow management system.
+                  Please enter your credentials to access the Calculus 2 Notes App.
                 </p>
               </div>
 
@@ -196,7 +196,7 @@ export default function LoginPage() {
       </main>
 
       <footer className="mt-auto border-t border-gray-100 bg-white px-4 py-6 text-center text-sm font-medium text-gray-500">
-        © 2025 TaskFlow • MNSU IT Support
+        © 2025 Calculus 2 Notes App • MNSU Math 122
       </footer>
     </div>
   );

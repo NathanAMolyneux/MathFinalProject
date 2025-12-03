@@ -8,6 +8,8 @@ const cors = require('cors');
 const connectDB = require('./config/db');
 const { errorHandler } = require('./middleware/errorMiddleware');
 const requestRoutes = require('./routes/requestRoutes');
+const notesRouter = require('./routes/notes');
+
 
 // 1. Connect to Database
 connectDB();
@@ -19,7 +21,7 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 app.use('/api/requests', requestRoutes);
-
+app.use("/api/notes", notesRouter);
 
 
 // 3. Routes

@@ -1,4 +1,5 @@
-# CIS-SRMS
+backend npm install mongoose 
+node seed.js
 
-frontend command
-npx shadcn add dialog
+npm install --legacy-peer-deps
+
