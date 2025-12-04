@@ -16,9 +16,16 @@ const topics: Topic[] = [
     title: "Convergence Tests Overview",
     href: "/notes/convergence-tests",
   },
-  // Add more topics as you create pages, for example:
-  // { id: "2", title: "Power Series", href: "/notes/power-series" },
-  // { id: "3", title: "Taylor & Maclaurin Series", href: "/notes/taylor-series" },
+  {
+    id: "2",
+    title: "Polar Coordinates",
+    href: "/notes/polar-coordinates", // NEW PAGE
+  },
+  {
+    id: "3",
+    title: "Integration by Parts",
+    href: "/notes/integration-by-parts", // NEW PAGE
+  },
 ];
 
 export default function DashboardPage() {
@@ -33,13 +40,19 @@ export default function DashboardPage() {
                 Calculus 2 Notes App
               </span>
             </div>
-            <div className="hidden md:flex items-center space-x-8">
+
+            {/* TOP-RIGHT BUTTONS */}
+            <div className="hidden md:flex items-center space-x-4">
+              {/* Home */}
               <Link
                 href="/"
                 className="text-gray-600 hover:text-red-600 transition-colors font-medium"
               >
                 Home
               </Link>
+
+
+              {/* Sign Out */}
               <Link
                 href="/login"
                 className="px-6 py-2 rounded-full bg-red-600 text-white font-medium hover:bg-red-700 hover:shadow-lg hover:shadow-red-600/30 transition-all transform hover:-translate-y-0.5"
