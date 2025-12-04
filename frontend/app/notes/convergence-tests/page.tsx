@@ -631,15 +631,7 @@ export default function ConvergenceTestsPage() {
               ← Back to Dashboard
             </Link>
 
-            {/* Back Link */}
-            <div className="mt-8 mb-8">
-              <Link
-                href="/dashboard"
-                className="inline-flex items-center text-sm font-medium text-red-700 hover:text-red-800"
-              >
-                ← Back to Dashboard
-              </Link>
-            </div>
+
           </div>
         </main>
       </div>
