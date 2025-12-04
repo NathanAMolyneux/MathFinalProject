@@ -380,6 +380,256 @@ export default function ConvergenceTestsPage() {
             {/* Examples (unchanged) */}
             {/* Direct Comparison Example */}
             {/* ... all your example blocks stay exactly as you had them ... */}
+ {/* Example: Using Direct Comparison */}
+<div className="mt-4 p-4 rounded-xl border border-red-100 bg-red-50/40">
+  <h3 className="text-md font-semibold text-red-700 mb-2">
+    Example: Determine whether the series Σ
+    <div className="inline-flex flex-col items-center ml-1">
+      <span>1</span>
+      <span className="border-t border-gray-700 w-full"></span>
+      <span>n<sup>2</sup> + 1</span>
+    </div>
+    converges
+  </h3>
+
+  <p className="text-sm text-gray-700 leading-relaxed mb-2">
+    We can also evaluate this series using the <strong>Direct Comparison Test</strong>.
+    Notice that the denominator <strong>n² + 1</strong> is always larger than <strong>n²</strong>
+    for every n ≥ 1. A larger denominator makes the whole fraction smaller.
+  </p>
+
+  <p className="text-sm text-gray-700 leading-relaxed mb-2">
+    We compare the series directly with the known p-series Σ 1/n².
+  </p>
+
+  {/* Inequality */}
+  <p className="text-sm font-mono text-gray-800 bg-white p-2 rounded-lg border border-red-100">
+    For all n ≥ 1:
+    <br />
+    <div className="inline-flex flex-col items-center mt-1">
+      <span>1</span>
+      <span className="border-t border-gray-700 w-full"></span>
+      <span>n<sup>2</sup> + 1</span>
+    </div>
+    <span className="mx-2">≤</span>
+    <div className="inline-flex flex-col items-center">
+      <span>1</span>
+      <span className="border-t border-gray-700 w-full"></span>
+      <span>n<sup>2</sup></span>
+    </div>
+  </p>
+
+  <p className="text-sm text-gray-700 leading-relaxed mt-2">
+    This inequality is true because adding 1 to the denominator makes the value smaller.
+  </p>
+
+  <p className="text-sm text-gray-700 leading-relaxed mt-1">
+    Since Σ 1/n² is a known <strong>convergent</strong> p-series (p = 2 &gt; 1),
+    and our terms are <em>always smaller</em> than the terms of a convergent series,
+    the Direct Comparison Test applies.
+  </p>
+
+  <p className="text-sm text-gray-800 font-semibold mt-2">
+    ✅ Therefore, the series Σ 1/(n² + 1) <span className="text-red-700">converges</span>.
+  </p>
+</div>
+
+
+          {/* Example: Using the Strategy */}
+<div className="mt-4 p-4 rounded-xl border border-red-100 bg-red-50/40">
+  <h3 className="text-md font-semibold text-red-700 mb-2">
+    Example: Determine whether the series Σ<div className="inline-flex flex-col items-center">
+  <span>1</span>
+  <span className="border-t border-gray-700 w-full"></span>
+  <span>n<sup>2</sup> + 1</span>
+</div>
+ converges
+  </h3>
+
+  <p className="text-sm text-gray-700 leading-relaxed mb-2">
+    You can also use the limit comparison test on this example for a strong converging case. The terms look similar to a p-series, because for large n, the “+1” becomes
+    insignificant compared to n². So we compare it to the known p-series Σ 1/n².
+  </p>
+
+  <p className="text-sm text-gray-700 leading-relaxed mb-2">
+    We use the <strong>Limit Comparison Test</strong> with bₙ = 1/n².
+  </p>
+
+  <p className="text-sm font-mono text-gray-800 bg-white p-2 rounded-lg border border-red-100">
+    Lim<sub>n → ∞</sub>  <div className="inline-flex flex-col items-center mx-1">
+  <div className="inline-flex flex-col items-center">
+    <span className="inline-flex flex-col items-center">
+      <span>1</span>
+      <span className="border-t border-gray-700 w-full"></span>
+      <span>n<sup>2</sup> + 1</span>
+    </span>
+    <span className="border-t border-gray-700 w-full my-1"></span>
+    <span className="inline-flex flex-col items-center">
+      <span>1</span>
+      <span className="border-t border-gray-700 w-full"></span>
+      <span>n<sup>2</sup></span>
+    </span>
+  </div>
+</div>
+
+    <br />
+    = <div className="text-sm inline-flex items-center">
+  <span className="mr-1">Lim</span>
+  <sub className="mr-2">n → ∞</sub>
+
+  {/* Fraction */}
+  <span className="inline-flex flex-col items-center">
+    <span>n<sup>2</sup></span>
+    <span className="border-t border-gray-700 w-full"></span>
+    <span>n<sup>2</sup> + 1</span>
+  </span>
+</div>
+                    <br />
+    From ratio of leading Terms:
+    
+
+    <br />
+    = 1
+  </p>
+
+  <p className="text-sm text-gray-700 leading-relaxed mt-2">
+    Since the limit is a positive finite number (<strong>1</strong>), both
+    series behave the same.
+  </p>
+
+  <p className="text-sm text-gray-700 leading-relaxed mt-1">
+    And we know that Σ 1/n² is a convergent p-series with p = 2 &gt; 1.
+  </p>
+
+  <p className="text-sm text-gray-800 font-semibold mt-2">
+    ✅ Therefore, the series Σ 1/(n² + 1) <span className="text-red-700">converges</span>.
+  </p>
+</div>
+{/* Example: Geometric Series Convergence */}
+<div className="mt-4 p-4 rounded-xl border border-red-200 bg-red-50/40">
+  <h3 className="text-md font-semibold text-red-700 mb-2">
+    Example: Determine whether the series Σ 7·
+    <span className="inline-flex flex-col items-center mx-1">
+      <span>−1</span>
+      <span className="border-t border-gray-700 w-full"></span>
+      <span>7</span>
+    </span>
+    <sup>n</sup> converges or diverges
+  </h3>
+
+  <p className="text-sm text-gray-700 leading-relaxed mb-2">
+    This is a geometric series of the form Σ a·r<sup>n</sup>. We identify:
+  </p>
+
+  <ul className="text-sm text-gray-700 leading-relaxed list-disc list-inside mb-2">
+    <li>First term: a = 7·     <span className="inline-flex flex-col items-center mx-1">
+        <span>−1</span>
+        <span className="border-t border-gray-700 w-full"></span>
+        <span>7</span> 
+      </span><sup>0</sup> = 7</li>
+    <li>Common ratio: r = 
+      <span className="inline-flex flex-col items-center mx-1">
+        <span>−1</span>
+        <span className="border-t border-gray-700 w-full"></span>
+        <span>7</span>
+      </span>
+    </li>
+  </ul>
+
+  <p className="text-sm text-gray-700 leading-relaxed mb-2">
+    A geometric series converges when <strong>|r| &lt; 1</strong> and diverges when <strong>|r| ≥ 1</strong>.
+  </p>
+
+  {/* |r| check */}
+  <p className="text-sm font-mono text-gray-800 bg-white p-2 rounded-lg border border-red-200">
+    |r| =  
+    <span className="inline-flex flex-col items-center mx-1">
+      <span>1</span>
+      <span className="border-t border-gray-700 w-full"></span>
+      <span>7</span>
+    </span>
+    &lt; 1  
+    → geometric series converges
+  </p>
+
+  {/* Sum Formula */}
+  <p className="text-sm text-gray-700 leading-relaxed mt-2">
+    Since |r| &lt; 1, the series <strong>converges</strong>.  
+    For a geometric series starting at n = 0, the sum is:
+  </p>
+
+  {/* Fraction for S = a / (1 - r) */}
+  <div className="text-sm font-mono text-gray-800 bg-white p-2 rounded-lg border border-red-200">
+    <div>S = a / (1 − r)</div>
+
+    <div className="mt-2">
+      a = 7, r = 
+      <span className="inline-flex flex-col items-center mx-1">
+        <span>−1</span>
+        <span className="border-t border-gray-700 w-full"></span>
+        <span>7</span>
+      </span>
+    </div>
+
+    {/* Fraction for 1 - r */}
+    <div className="mt-1">
+      1 − r = 1 − 
+      <span className="inline-flex flex-col items-center mx-1">
+        <span>−1</span>
+        <span className="border-t border-gray-700 w-full"></span>
+        <span>7</span>
+      </span>
+      = 1 + 
+      <span className="inline-flex flex-col items-center mx-1">
+        <span>1</span>
+        <span className="border-t border-gray-700 w-full"></span>
+        <span>7</span>
+      </span>
+    </div>
+
+    {/* Fraction for a/(1 - r) */}
+    <div className="mt-2 inline-flex flex-col items-center">
+      <span>7</span>
+      <span className="border-t border-gray-700 w-full"></span>
+      <span>
+        1 + 
+        <span className="inline-flex flex-col items-center mx-1">
+          <span>1</span>
+          <span className="border-t border-gray-700 w-full"></span>
+          <span>7</span>
+        </span>
+      </span>
+    </div>
+
+    <div className="mt-2">= 
+      <span className="inline-flex flex-col items-center mx-1">
+        <span>49</span>
+        <span className="border-t border-gray-700 w-full"></span>
+        <span>8</span>
+      </span>
+    </div>
+  </div>
+
+  <p className="text-sm text-gray-700 leading-relaxed mt-2">
+    So the infinite geometric series converges to the value 
+    <strong> 49/8</strong>.
+  </p>
+
+  <p className="text-sm text-gray-800 font-semibold mt-2">
+    ✅ Therefore, the geometric series Σ 7·(−1/7)<sup>n</sup>{" "}
+    <span className="text-red-700">converges to 49/8</span>.
+  </p>
+</div>
+</div>
+
+          {/* Back Link */}
+          <div className="mt-8">
+            <Link
+              href="/dashboard"
+              className="inline-flex items-center text-sm font-medium text-red-700 hover:text-red-800"
+            >
+              ← Back to Dashboard
+            </Link>
 
             {/* Back Link */}
             <div className="mt-8 mb-8">
