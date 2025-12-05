@@ -57,6 +57,21 @@ export default function ConvergenceTestsPage() {
               </p>
             </header>
 
+            <section className="mt-12">
+  <h2 className="text-2xl font-bold text-red-700 mb-3"> Why This Matters</h2>
+  <p className="text-gray-700 leading-relaxed">
+    Convergence tests are important because they tell us whether an infinite series
+    represents a meaningful value or blows up without bound. Infinite series are
+    used to build power series, Taylor series, and many approximation methods in
+    calculus and beyond. To trust these approximations in physics for approximations,
+    finance for compound interest or forecasting models, or computer / data science for computing waves numerically and infinite iteration, we need to know when the underlying series actually
+    converges. The tests listed below give us a toolkit for
+    deciding which series behave nicely and which ones do not.
+    <br/>
+  </p>
+</section>
+
+
             {/* Content Card */}
             <section className="bg-white border border-red-100 rounded-2xl p-6 shadow-sm space-y-8">
               {/* 1. Test for Divergence */}

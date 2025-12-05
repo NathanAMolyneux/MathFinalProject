@@ -84,6 +84,20 @@ export default function PolarCoordinatesPage() {
                 </ul>
               </div>
 
+              <section className="mt-12">
+  <h2 className="text-2xl font-bold text-red-700 mb-3"> Why This Matters</h2>
+  <p className="text-gray-700 leading-relaxed">
+    Polar coordinates matter because many shapes and motions are easier to describe
+    using angles and distances instead of x and y coordinates. Curves like circles,
+    spirals, and rose curves often have very simple polar equations that are often complicated in rectangular form. Polar coordinates are used in
+    physics for modeling orbits and fields, in engineering for analyzing circular
+    motion, and in graphics and navigation for describing directions and locations.
+    Learning polar coordinates helps you see geometry from a new perspective and
+    prepares you for multivariable calculus and vector fields.
+  </p>
+</section>
+
+
               {/* Conversion Formulas */}
               <div>
                 <h2 className="text-xl font-semibold text-red-700 mb-2">

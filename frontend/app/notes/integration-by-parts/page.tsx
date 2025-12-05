@@ -81,6 +81,21 @@ export default function IntegrationByPartsPage() {
                 </ul>
               </div>
 
+              <section className="mt-12">
+  <h2 className="text-2xl font-bold text-red-700 mb-3"> Why This Matters</h2>
+  <p className="text-gray-700 leading-relaxed">
+    Integration by Parts is important because it lets us evaluate integrals that
+    involve products of functions where basic substitution doesn&apos;t work well.
+    Many key functions in calculus such as logarithms, inverse trig functions, and
+    products of polynomials with exponentials or trig functions are only integrable
+     using this method. Since Integration by Parts comes from
+    reversing the Product Rule, it shows how differentiation and integration are
+    deeply connected, and it appears again in differential equations, physics  for work, energy and motion, and
+    probability when deriving expected values.
+  </p>
+</section>
+
+
               {/* From Product Rule to IBP */}
               <div>
                 <h2 className="text-xl font-semibold text-red-700 mb-2">

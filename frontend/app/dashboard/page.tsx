@@ -143,18 +143,16 @@ export default function DashboardPage() {
                     Study Tip
                   </p>
                   <p className="text-sm text-gray-700">
-                    Start with a high-level overview topic, then move into
-                    specific tests like Ratio, Root, and Comparison.
+                   Select a topic from the sidebar or below to dive into focused notes. 
                   </p>
                 </div>
 
                 <div className="bg-white border border-gray-100 rounded-2xl p-4 shadow-sm">
                   <p className="text-xs font-semibold text-gray-500 uppercase mb-1">
-                    How to Use
+                    How the app relates Calculus 2 concepts together
                   </p>
                   <p className="text-sm text-gray-700">
-                    Pick a topic on the left, read the examples, then try solving
-                    similar problems from your textbook or homework.
+                    These notes highlight the major concepts from Calculus II and focus on how different ideas connect to real world examples.
                   </p>
                 </div>
               </div>
