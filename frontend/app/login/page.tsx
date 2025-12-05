@@ -162,6 +162,14 @@ export default function LoginPage() {
                   </div>
                 </div>
 
+                        {/* 🚀 Bypass / Guest Button */}
+        <button
+          onClick={() => router.push("/dashboard")}
+          className="w-full mt-4 py-3 bg-gray-300 text-gray-900 rounded-lg hover:bg-gray-400 transition"
+        >
+          Continue Without Logging In
+        </button>
+
                 <div className="flex flex-col gap-4 sm:flex-row pt-2">
                   <button
                     type="submit"

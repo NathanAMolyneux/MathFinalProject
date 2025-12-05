@@ -38,6 +38,8 @@ export default function ConvergenceTestsPage() {
         {/* 🔴 Dashboard-style sidebar with topics */}
         <TopicsSidebar />
 
+        
+
         {/* Main Page Content */}
         <main className="flex-1 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-red-50/40 via-white to-white">
           <div className="max-w-4xl mx-auto">
@@ -56,6 +58,8 @@ export default function ConvergenceTestsPage() {
                 2 to determine whether an infinite series converges or diverges.
               </p>
             </header>
+
+            
 
             <section className="mt-12">
   <h2 className="text-2xl font-bold text-red-700 mb-3"> Why This Matters</h2>
